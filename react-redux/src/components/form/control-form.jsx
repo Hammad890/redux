@@ -1,16 +1,18 @@
 import React from 'react';
 import { Formik } from 'formik';
 
-export default function ControlForm() {
- const initialValues ={
+const initialValues ={
   name:'',
   email:'',
   password:'',
 }
+
+export default function ControlForm() {
+
   return (
     <div>
         <Formik
-       initialValues
+       initialValues= {initialValues}
        validate={values => {
          const errors = {};
          if (!values.email) {
