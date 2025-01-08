@@ -2,7 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    text-align: center;
-    margin: 200px;
-  }
