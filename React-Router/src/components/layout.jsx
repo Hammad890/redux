@@ -4,10 +4,13 @@ import { Outlet } from "react-router-dom";
 
 export default function Layout(){
     return (
-        <main>
+        <main className="min-h-screen flex flex-col">
             <Header />
+            <div className="flex-grow flex items-center justify-center">
             <Outlet />
+            </div>
             <Footer />
+            
         </main>
     )
 }
