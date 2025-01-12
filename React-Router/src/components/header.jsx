@@ -10,6 +10,7 @@ function Header() {
           <ul className="flex space-x-4">
             <li><a href="/" className="hover:text-blue-300">Home</a></li>
             <li><a href="/about" className="hover:text-blue-300">About</a></li>
+            <li><a href="/post" className="hover:text-blue-300">Create Post</a></li>
             <li><a href={`/profile/${id}`} className="hover:text-blue-300">Profile</a></li>
           </ul>
         </nav>

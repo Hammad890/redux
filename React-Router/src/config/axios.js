@@ -5,7 +5,6 @@ class PostAxiosInstance {
         this.postAxiosInstance = axios.create({
             baseURL: baseURL || '',
             timeout: 5000,
-            method: 'post',
             headers: {
                 "Content-Type": "application/json",
             },
@@ -29,6 +28,7 @@ class PostAxiosInstance {
         },
         (error) => {
             if (error.response) {
+              console.error('Response error:', error.response.status, error.response.data);
             switch(error.response.status){
                     case 401:
                         localStorage.removeItem('authtoken');
@@ -39,7 +39,9 @@ class PostAxiosInstance {
                 break;
                 case 404:
                 console.log('Not Found');
-                break
+                break;
+                default:
+                  console.log(`Unhandled status code: ${error.response.status}`);
             }
         }else if(error.request) {
             console.log('Request Error',error.request)
@@ -50,9 +52,20 @@ class PostAxiosInstance {
         }
       );
   }
+  get(url, config) {
+    return this.postAxiosInstance.get(url, config);
+  }
   post(url, data,config) {
     return this.postAxiosInstance.post(url, data,config);
   }
+  
+  put(url, data, config) {
+    return this.postAxiosInstance.put(url, data, config);
+}
+
+delete(url, config) {
+    return this.postAxiosInstance.delete(url, config);
+}
 }
 
 const axiosInstance= new PostAxiosInstance('https://jsonplaceholder.typicode.com'); 
